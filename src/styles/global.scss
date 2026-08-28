@@ -1,0 +1,299 @@
+// Google Fonts — ported from the previous Gatsby `gatsby-plugin-google-fonts`
+// config (Cinzel Decorative for headings, Montserrat for everything else).
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+// Bootstrap 5 (compiled) — same version family the old react-bootstrap used.
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+// MapLibre GL — used by the scms-core <Map> on /webgis/.
+@import 'maplibre-gl/dist/maplibre-gl.css';
+
+// ---------------------------------------------------------------------------
+// Global typography (ported from src/templates/Layout.js)
+// ---------------------------------------------------------------------------
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+p,
+li {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+blockquote {
+  text-align: center;
+}
+
+// Keep the site content clear of the absolutely-positioned transparent navbar.
+.site-wrapper {
+  overflow-x: hidden;
+}
+
+// ---------------------------------------------------------------------------
+// Header / navbar (ported from src/components/Header.js)
+// The navbar is transparent and sits *over* the hero image at the top of
+// every page.
+// ---------------------------------------------------------------------------
+.bk-navbar {
+  .navbar {
+    position: absolute;
+    width: 100%;
+    z-index: 1030;
+  }
+
+  .navbar-brand img {
+    filter: invert(100%);
+  }
+
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.55);
+  }
+
+  .navbar-toggler-icon {
+    filter: invert(100%);
+  }
+
+  .dropdown-menu {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .dropdown-item {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(0, 0, 0);
+
+    &:hover,
+    &:focus {
+      color: rgb(0, 0, 0);
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  }
+
+  .nav-link {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(255, 255, 255) !important;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 1rem;
+
+    &:hover {
+      color: rgb(255, 255, 255) !important;
+      font-weight: 600;
+    }
+  }
+
+  // Collapsed (mobile) menu needs a backdrop so the white links stay readable.
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Home hero (ported from src/pages/index.js)
+// ---------------------------------------------------------------------------
+.bk-home-hero {
+  position: relative;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    filter: brightness(70%);
+    object-fit: cover;
+  }
+
+  .bk-home-hero-caption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 1rem;
+
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
+}
+
+// Orange "Explore WebGIS" button (react-bootstrap `variant="link"` in the old
+// site, styled via .btn-link).
+.bk-btn-explore {
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: rgba(204, 119, 34, 0.7) !important;
+  color: rgb(255, 255, 255) !important;
+  padding: 1rem !important;
+  border: none !important;
+  font-size: 2rem !important;
+  text-decoration: none !important;
+  border-radius: 0;
+
+  &:hover {
+    background-color: rgba(204, 119, 34, 0.7) !important;
+    border: none;
+    font-weight: 700;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Content-page hero band (ported from `.bg-image` in src/templates/ConLayout.js)
+// ---------------------------------------------------------------------------
+.bg-image {
+  position: relative;
+  margin: auto;
+  height: 50vh;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.bk-hero-dim img {
+    filter: brightness(60%);
+  }
+
+  h2 {
+    font-family: 'Cinzel Decorative', serif;
+    position: absolute;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    margin: 0;
+    overflow-wrap: break-word;
+
+    @media (min-width: 576px) {
+      font-size: 2.8rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Content body (ported from src/templates/ConLayout.js)
+// ---------------------------------------------------------------------------
+.bk-page-content {
+  // Long bare URLs in the bibliography must wrap instead of forcing a
+  // horizontal scrollbar.
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  a {
+    color: rgb(60, 116, 190);
+    text-decoration: none !important;
+  }
+
+  // Markdown sub-headings render in Montserrat (matching the old `.col h3/h4`
+  // rule); h5 stays in the display face and is used for image captions.
+  h3,
+  h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+
+  h5 {
+    text-align: center !important;
+    font-style: italic;
+    font-weight: 200;
+    font-size: 1rem;
+    padding-bottom: 2rem;
+    color: gray;
+  }
+
+  img {
+    display: block;
+    max-width: 850px;
+    width: 100%;
+    height: auto;
+    margin: 1.5rem auto;
+  }
+
+  blockquote {
+    text-align: center;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Footer (ported from src/components/Footer.js)
+// ---------------------------------------------------------------------------
+.bk-footer {
+  footer {
+    padding: 2rem;
+    background-color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h5 {
+    font-size: 1rem;
+    text-align: left;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  p {
+    text-align: left;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .bk-footer-partner img {
+    filter: invert(100%);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// WebGIS in-page map (replaces the old full-screen react-leaflet map)
+// ---------------------------------------------------------------------------
+.bk-map-wrapper {
+  margin: 2rem 0 1rem;
+
+  .maplibregl-map {
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  }
+}

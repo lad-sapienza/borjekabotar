@@ -1,0 +1,40 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+interface Frontmatter {
+  title?: string;
+  description?: string;
+  heroTitle?: string;
+  heroImage?: string;
+  heroDim?: boolean;
+  [key: string]: unknown;
+}
+
+interface Props {
+  /** The `frontmatter` object from `await import('../content-pages/*.mdx')`. */
+  frontmatter: Frontmatter;
+  /** Bootstrap column classes for the text column (ported: `col-md-8 mx-auto my-5`). */
+  innerClass?: string;
+}
+
+const { frontmatter, innerClass = 'col-md-8 mx-auto my-5' } = Astro.props;
+
+const heroImage = frontmatter.heroImage ?? '';
+const heroTitle = frontmatter.heroTitle ?? frontmatter.title ?? '';
+---
+
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  image={frontmatter.heroImage}
+>
+  <PageHero image={heroImage} title={heroTitle} dim={frontmatter.heroDim} />
+  <div class="container bk-page-content">
+    <div class="row">
+      <div class={innerClass}>
+        <slot />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+// Ported from the old src/pages/about.js (the "Team" page — static list of
+// project members).
+const directors = [
+  { name: 'Danilo Rosati', role: 'Project Co-Director' },
+  { name: 'Fariba Saiedi Anaraki', role: 'Project Co-Director' },
+];
+
+const team = [
+  { name: 'Francesca Adesso', role: '3D Modeler' },
+  { name: "Domizia D'Erasmo", role: 'Web-GIS Developer' },
+  { name: 'Edoardo Ferrari', role: 'Architect' },
+  { name: 'Noemi Giovino', role: 'Web Developer' },
+  { name: 'Amir Jamshidi', role: 'Translator' },
+  { name: 'Gaetano Pezzella', role: 'Photographer' },
+  { name: 'Giuseppe Salemmi', role: '3D Survey' },
+  { name: 'Ilaria Elisea Scerrato', role: 'Social Anthropologist' },
+];
+---
+
+<BaseLayout title="About" description="The team of Borj-e Kabotar" image="/images/towers_isfahan.jpg">
+  <PageHero image="/images/towers_isfahan.jpg" title="Team" />
+
+  <div class="container bk-page-content py-5">
+    <div class="row">
+      {
+        directors.map((m) => (
+          <div class="col-12 col-md-6">
+            <div class="card m-2">
+              <div class="card-body">
+                <h5 class="card-title">{m.name}</h5>
+                <p class="card-text position">{m.role}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="row my-5">
+      {
+        team.map((m) => (
+          <div class="col-6 col-sm-3">
+            <div class="card m-2">
+              <div class="card-body">
+                <h5 class="card-title">{m.name}</h5>
+                <p class="card-text position">{m.role}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

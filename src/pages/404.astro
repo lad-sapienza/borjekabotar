@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<BaseLayout title="Page not found" description="Page not found">
+  <PageHero image="/images/towers_isfahan.jpg" title="Page not found" dim={true} />
+
+  <div class="container bk-page-content">
+    <div class="row">
+      <div class="col-md-8 mx-auto my-5 text-center">
+        <p>Sorry 😔 we couldn’t find what you were looking for.</p>
+        <p><a href="/">Go home</a></p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

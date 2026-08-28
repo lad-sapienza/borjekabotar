@@ -1,45 +1,40 @@
 {
   "name": "borjekabotar",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "borjekabotar",
-  "author": "ddomizia",
-  "keywords": [
-    "gatsby"
-  ],
+  "type": "module",
+  "description": "Borj-e Kabotar — Architecture and anthropology of the pigeon towers in the Isfahan province. Built with Astro and s:CMS.",
+  "author": {
+    "name": "Julian Bogdani",
+    "email": "julian.bogdani@uniroma1.it",
+    "url": "https://lad.saras.uniroma1.it"
+  },
+  "license": "0BSD",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "^2.0.2",
-    "bootstrap": "^5.1.3",
-    "gatsby": "^4.7.1",
-    "gatsby-plugin-google-fonts": "^1.0.1",
-    "gatsby-plugin-image": "^2.7.0",
-    "gatsby-plugin-next-seo": "^1.10.0",
-    "gatsby-plugin-react-helmet": "^5.7.0",
-    "gatsby-plugin-react-leaflet": "^3.0.3",
-    "gatsby-plugin-sass": "^5.7.0",
-    "gatsby-plugin-sharp": "^4.7.0",
-    "gatsby-plugin-sitemap": "^5.7.0",
-    "gatsby-plugin-styled-components": "^5.7.0",
-    "gatsby-source-filesystem": "^4.7.0",
-    "gatsby-source-wordpress": "^6.7.0",
-    "gatsby-transformer-geojson": "^1.0.2",
-    "gatsby-transformer-remark": "^5.7.0",
-    "gatsby-transformer-sharp": "^4.7.0",
-    "leaflet": "^1.7.1",
-    "react": "^17.0.1",
-    "react-bootstrap": "^2.1.2",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "react-helmet-async": "^1.2.2",
-    "react-leaflet": "^3.2.5",
-    "sass": "^1.49.7",
-    "styled-components": "^5.3.3"
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/markdown-remark": "^7.2.4",
+    "@lad-sapienza/scms-core": "^0.1.0-alpha.9",
+    "astro": "^7.2.4",
+    "bootstrap": "^5.3.8",
+    "maplibre-gl": "^5.21.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "rehype-slug": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "sass": "^1.98.0",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "@vitejs/plugin-react": "^5.1.4"
   }
 }

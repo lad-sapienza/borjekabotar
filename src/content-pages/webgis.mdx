@@ -1,0 +1,44 @@
+---
+title: "WebGIS"
+heroTitle: "WebGIS"
+description: "An interactive map of the pigeon towers documented in the Isfahan province during the 2008 survey."
+heroImage: "/images/towers_isfahan.jpg"
+heroDim: true
+---
+
+import { Map } from "@lad-sapienza/scms-core/components/Map";
+
+The map below shows the pigeon towers documented in the province of Isfahan
+during the 2008 survey — mainly along the oasis of Isfahan, crossed by the
+Zayandè river, and around Golpayegan. Use the layer control to switch between
+the street map and satellite imagery.
+
+<div class="bk-map-wrapper">
+  <Map
+    client:only="react"
+    height="600px"
+    center="53.2,32.6,7"
+    baseLayers={["OSM", "EsriSatellite"]}
+    navigationControl="top-left"
+    scaleControl="bottom-left"
+    fullscreenControl="top-right"
+    layerControl="top-right"
+    overlayLayers={[
+      {
+        name: "Pigeon towers",
+        source: { type: "geojson", url: "/data/ptowers.json" },
+        fitToContent: true,
+        style: {
+          type: "circle",
+          paint: {
+            "circle-radius": 5,
+            "circle-color": "#cc7722",
+            "circle-opacity": 0.85,
+            "circle-stroke-width": 1,
+            "circle-stroke-color": "#ffffff",
+          },
+        },
+      },
+    ]}
+  />
+</div>

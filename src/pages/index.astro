@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteMetadata } from '../user.config.mjs';
+
+// Ported from the old src/pages/index.js — a single full-bleed hero image
+// (the old page wrapped it in a one-slide react-bootstrap Carousel) with the
+// title, subtitle and the orange "Explore WebGIS" call to action on top.
+---
+
+<BaseLayout
+  title="Home"
+  description={siteMetadata.description}
+  image="/images/survey_pigeon_towers.jpg"
+>
+  <section class="bk-home-hero">
+    <img src="/images/survey_pigeon_towers.jpg" alt="Borj-e Kabotar" />
+    <div class="bk-home-hero-caption">
+      <h1 class="d-none d-md-block">Borj–e Kabotar</h1>
+      <p class="d-none d-md-block">
+        Architecture and anthropology of the pigeon towers in the Isfahan province
+      </p>
+      <a class="btn bk-btn-explore" href="/webgis/" title="Web GIS">Explore WebGIS</a>
+    </div>
+  </section>
+</BaseLayout>

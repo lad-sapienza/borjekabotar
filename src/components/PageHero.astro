@@ -1,0 +1,18 @@
+---
+// The 50vh hero band with a centred title, shown at the top of every content
+// page. Ported from the `.bg-image` block in the old src/templates/ConLayout.js.
+interface Props {
+  image: string;
+  title: string;
+  alt?: string;
+  /** Darken the image (the old survey/publications pages used brightness 60%). */
+  dim?: boolean;
+}
+
+const { image, title, alt, dim = false } = Astro.props;
+---
+
+<div class:list={['bg-image', { 'bk-hero-dim': dim }]}>
+  <img src={image} alt={alt ?? title} />
+  <h2>{title}</h2>
+</div>

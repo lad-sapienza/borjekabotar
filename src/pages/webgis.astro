@@ -1,0 +1,8 @@
+---
+import ContentPage from '../layouts/ContentPage.astro';
+const { Content, frontmatter } = await import('../content-pages/webgis.mdx');
+---
+
+<ContentPage frontmatter={frontmatter} innerClass="col-lg-11 mx-auto my-5">
+  <Content />
+</ContentPage>

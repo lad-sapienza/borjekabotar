@@ -1,0 +1,65 @@
+---
+// Ported from the old src/components/Header.js (react-bootstrap Navbar).
+// Plain Bootstrap 5 markup — Bootstrap's own JS bundle (loaded once below)
+// drives the dropdown/collapse behaviour. The navbar is transparent and is
+// positioned *over* the hero image at the top of every page (see .bk-navbar
+// in global.scss).
+---
+
+<div class="bk-navbar">
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-none d-md-inline-block" href="/">
+        <img src="/logos/logo_bn.png" alt="Logo Borj-e Kabotar" width="100" />
+      </a>
+      <button
+        class="navbar-toggler ms-auto"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#bkNavbar"
+        aria-controls="bkNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="bkNavbar">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">Project</a
+            >
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/geo/">Geographical Settings</a></li>
+              <li><a class="dropdown-item" href="/towers/">Towers</a></li>
+              <li><a class="dropdown-item" href="/survey/">Survey</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/webgis/">WebGIS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/publications/">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/news/">News</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<script>
+  import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+</script>
